@@ -1,0 +1,64 @@
+/*
+
+Most Popular Screen Resolutions
+
+Device          Physical Pixel Size| Logical Pixel Size
+_______________________________________________________
+Nexus 6P	            1440 x 2560| 411 x 731
+Nexus 5X	            1080 x 1920| 411 x 731
+Google Pixel	        1080 x 1920| 411 x 731
+Google Pixel XL	        1440 x 2560| 411 x 731
+Google Pixel 2      	1080 x 1920| 411 x 731
+Google Pixel 2 XL	    1440 x 2560| 411 x 731
+Samsung Galaxy Note 5	1440 x 2560| 480 x 853
+LG G5	                1440 x 2560| 480 x 853
+One Plus 3	            1080 x 1920| 480 x 853
+Samsung Galaxy S9	    1440 x 2960| 360 x 740
+Samsung Galaxy S9+  	1440 x 2960| 360 x 740
+Samsung Galaxy S8	    1440 x 2960| 360 x 740
+Samsung Galaxy S8+  	1440 x 2960| 360 x 740
+Samsung Galaxy S7	    1440 x 2560| 360 x 640
+Samsung Galaxy S7 Edge	1440 x 2560| 360 x 640	
+Nexus 7 (2013)      	1200 x 1920| 600 x 960
+Nexus 9	                1536 x 2048| 768 x 1024
+Samsung Galaxy Tab 10	 800 x 1280| 800 x 1280
+Chromebook Pixel    	2560 x 1700| 1280 x 850
+iPhone X	            1125 x 2436| 375 x 812
+iPhone 8 Plus	        1080 x 1920| 414 x 736
+iPhone 8	             750 x 1334| 375 x 667
+iPhone 7 Plus	        1080 x 1920| 414 x 736
+iPhone 7	             750 x 1334| 375 x 667
+iPhone 6+/6S+           1080 x 1920| 414 x 736
+iPhone 6/6S	             750 x 1334| 375 x 667
+iPHone 5	             640 x 1136| 320 x 568		
+iPod Touch  	         640 x 1136| 320 x 568		
+iPad Pro    	        2048 x 2732| 1024 x 1366
+iPad 3,4	            1536 x 2048| 768 x 1024
+iPad Air 1,2	        1536 x 2048| 768 x 1024
+iPad Mini	             768 x 1024| 768 x 1024
+iPad Mini 2,3	        1536 x 2048| 768 x 1024
+*/
+
+
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+}
+
+@media screen and (min-width: 641px) and (max-width: 768px) {
+
+}
+
+@media screen and (min-width: 481px) and (max-width: 640px) {
+
+}
+@media screen and (min-width: 361px) and (max-width: 480px) {
+
+}
+@media screen and (max-width: 360px) {
+
+}
