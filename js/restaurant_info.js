@@ -117,17 +117,32 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
-  const name = document.createElement('p');
+  const review_block = document.createElement('div');
+  review_block.className = 'review-container';
+
+  const review_header = document.createElement('div');
+  review_header.className = 'review-header';
+
+  const name = document.createElement('span');
+  name.className = 'review-author';
   name.innerHTML = review.name;
-  li.appendChild(name);
+  review_header.appendChild(name);
 
-  const date = document.createElement('p');
-  date.innerHTML = review.date;
-  li.appendChild(date);
+  const date = document.createElement('span');
+  date.className = 'review-date';
+ date.innerHTML = review.date;
+ review_header.appendChild(date);
+ review_block.appendChild(review_header);
 
-  const rating = document.createElement('p');
-  rating.innerHTML = `Rating: ${review.rating}`;
-  li.appendChild(rating);
+
+  const rating = document.createElement('div');
+  rating.className = 'review-rating';
+  rating.innerHTML = '<span>Rating: </span>';
+  for (let i = 0; i < review.rating; i++)
+    rating.innerHTML += '<img src="img/hot-chili.png" alt="Red hot chili">';
+  review_block.appendChild(rating);
+
+  li.appendChild(review_block);
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
@@ -139,7 +154,7 @@ createReviewHTML = (review) => {
 /**
  * Add restaurant name to the breadcrumb navigation menu
  */
-fillBreadcrumb = (restaurant=self.restaurant) => {
+fillBreadcrumb = (restaurant = self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
