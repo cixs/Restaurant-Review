@@ -50,7 +50,9 @@ fetchRestaurantFromURL = (callback) => {
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
-  name.innerHTML = restaurant.name;
+  const header = document.createElement('h1');
+  header.innerHTML = restaurant.name;
+  name.appendChild(header);
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
@@ -79,11 +81,11 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     const row = document.createElement('tr');
 
     const day = document.createElement('td');
-    day.innerHTML = key;
+    day.innerHTML = `<b>${key}:</b>`;
     row.appendChild(day);
 
     const time = document.createElement('td');
-    time.innerHTML = operatingHours[key];
+    time.innerHTML = operatingHours[key].replace(/ /g, '');
     row.appendChild(time);
 
     hours.appendChild(row);
@@ -137,16 +139,16 @@ createReviewHTML = (review) => {
 
   const rating = document.createElement('div');
   rating.className = 'review-rating';
-  rating.innerHTML = '<span>Rating: </span>';
+  rating.innerHTML = '<span>Rating </span>';
   for (let i = 0; i < review.rating; i++)
     rating.innerHTML += '<img src="img/hot-chili.png" alt="Red hot chili">';
   review_block.appendChild(rating);
 
-  li.appendChild(review_block);
-
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
-  li.appendChild(comments);
+  review_block.appendChild(comments);
+  
+  li.appendChild(review_block);
 
   return li;
 }

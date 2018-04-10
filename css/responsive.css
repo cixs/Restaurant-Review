@@ -1,0 +1,202 @@
+/*
+
+Most Popular Screen Resolutions
+
+Device          Physical Pixel Sizes| Logical Pixel Sizes
+_______________________________________________________
+Nexus 6P	              1440 x 2560| 411 x 731
+Nexus 5X	              1080 x 1920| 411 x 731
+Google Pixel	          1080 x 1920| 411 x 731
+Google Pixel XL	        1440 x 2560| 411 x 731
+Google Pixel 2        	1080 x 1920| 411 x 731
+Google Pixel 2 XL	      1440 x 2560| 411 x 731
+Samsung Galaxy Note 5 	1440 x 2560| 480 x 853
+LG G5	                  1440 x 2560| 480 x 853
+One Plus 3	            1080 x 1920| 480 x 853
+Samsung Galaxy S9	      1440 x 2960| 360 x 740
+Samsung Galaxy S9+    	1440 x 2960| 360 x 740
+Samsung Galaxy S8	      1440 x 2960| 360 x 740
+Samsung Galaxy S8+    	1440 x 2960| 360 x 740
+Samsung Galaxy S7	      1440 x 2560| 360 x 640
+Samsung Galaxy S7 Edge	1440 x 2560| 360 x 640	
+Nexus 7 (2013)        	1200 x 1920| 600 x 960
+Nexus 9	                1536 x 2048| 768 x 1024
+Samsung Galaxy Tab 10	   800 x 1280| 800 x 1280
+Chromebook Pixel      	2560 x 1700| 1280 x 850
+iPhone X	              1125 x 2436| 375 x 812
+iPhone 8 Plus	          1080 x 1920| 414 x 736
+iPhone 8	               750 x 1334| 375 x 667
+iPhone 7 Plus	          1080 x 1920| 414 x 736
+iPhone 7	               750 x 1334| 375 x 667
+iPhone 6+/6S+           1080 x 1920| 414 x 736
+iPhone 6/6S	             750 x 1334| 375 x 667
+iPHone 5	               640 x 1136| 320 x 568		
+iPod Touch  	           640 x 1136| 320 x 568		
+iPad Pro    	          2048 x 2732| 1024 x 1366
+iPad 3,4	              1536 x 2048| 768 x 1024
+iPad Air 1,2	          1536 x 2048| 768 x 1024
+iPad Mini	               768 x 1024| 768 x 1024
+iPad Mini 2,3	          1536 x 2048| 768 x 1024
+*/
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {}
+
+@media screen and (min-width: 961px) and (max-width: 1024px) {
+  #restaurants-list li {
+    width: 30%;
+  }
+  nav h1 a {
+    font-size: 22pt;
+  }
+}
+
+@media screen and (min-width: 641px) and (max-width: 960px) {
+  #restaurants-list li {
+    width: 30%;
+  }
+  #restaurants-list p {
+    font-size: 1.3em;
+  }
+  nav h1 a {
+    font-size: 20pt;
+    letter-spacing: 5px;
+  }
+  #reviews-container h2 {
+    font-size: 22pt;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 640px) {
+  #restaurants-list li {
+    width: 45%;
+  }
+  #restaurants-list p {
+    font-size: 1.1em;
+  }
+  nav h1 a {
+    font-size: 18pt;
+    letter-spacing: 5px;
+  }
+  #filter-options select {
+    float: right;
+  }
+  #restaurant-address {
+    font-size: 13pt;
+  }
+  #restaurant-hours td {
+    font-size: 10pt;
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width: 480px) {
+  #restaurants-list li {
+    width: 90%;
+  }
+  #restaurants-list p {
+    font-size: 1.4em;
+  }
+  nav h1 a {
+    font-size: 16pt;
+    letter-spacing: 5px;
+  }
+  #restaurant-container {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .inside #map-container {
+    width: 100%;
+    height: 420px;
+    padding: 10px 20px;
+  }
+  #reviews-container {
+    padding: 15px 20px 50px;
+  }
+  #restaurant-name {
+    padding-left: 20px;
+  }
+  #restaurant-name h1 {
+    font-size: 16pt;
+  }
+  #breadcrumb {
+    font-size: 12pt;
+    padding-left: 20px;
+  }
+  #restaurant-cuisine {
+    letter-spacing: 3px;
+  }
+  #reviews-container h2 {
+    font-size: 20pt;
+  }
+  #reviews-list li {
+    margin: 0 0 20px;
+  }
+  #reviews-list li p {
+    font-size: 1.1em;
+  }
+  #restaurant-address {
+    font-size: 12pt;
+  }
+  #restaurant-hours td {
+    font-size: 10pt;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #restaurants-list li {
+    width: 90%;
+  }
+  #restaurants-list p:nth-of-type(2) {
+    display: none;
+  }
+  nav h1 a {
+    font-size: 16pt;
+    letter-spacing: 2px;
+  }
+  #restaurant-container {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .inside #map-container {
+    width: 100%;
+    height: 300px;
+    padding: 10px 10px;
+  }
+  #reviews-container {
+    padding: 10px 10px 50px;
+  }
+  #restaurant-name {
+    padding-left: 10px;
+  }
+  #restaurant-name h1 {
+    font-size: 16pt;
+  }
+  #breadcrumb {
+    font-size: 12pt;
+    padding-left: 10px;
+  }
+  #restaurant-cuisine {
+    letter-spacing: 1px;
+  }
+  #reviews-container h2 {
+    font-size: 16pt;
+  }
+  #reviews-list li {
+    margin: 0 0 10px;
+  }
+  #reviews-list li p {
+    font-size: 1.1em;
+  }
+  #restaurant-address {
+    font-size: 12pt;
+  }
+  #restaurant-hours td {
+    font-size: 10pt;
+  }
+  @media screen and (min-width: 330px) and (max-width: 540px) {
+    .filter-options select:nth-of-type(2) {
+      margin-left: 100px;
+    }
+  }
+}
