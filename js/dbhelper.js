@@ -104,6 +104,52 @@ class DBHelper {
   }
 
   /**
+   * Function to search a text within the restaurant properties
+   * the most relevant places to find a match would be:
+   *    restaurant name
+   *    restaurant address
+   *    restaurant operating hours
+   *    comments on restaurant reviews
+   * return true if the parameter string was found, otherwise false
+   */
+  static hasText(restaurant, stringToSearch) {
+
+    if (restaurant.name.toLowerCase().search(stringToSearch) !== -1)
+      return (true); // if a match was found, searching on next restaurant properties is redundant
+
+    else if (restaurant.address.toLowerCase().search(stringToSearch) !== -1)
+      return (true);
+
+    for (let day in restaurant.operating_hours) 
+      if (restaurant.operating_hours.hasOwnProperty(day) && restaurant.operating_hours[day].toLowerCase().search(stringToSearch) !== -1)
+        return (true);
+
+    for(let i = 0; i < restaurant.reviews.length; i++){
+      let comment = restaurant.reviews[i].comments.toLowerCase();
+      if (comment.search(stringToSearch) !== -1)
+        return (true);
+    }
+    
+    return (false);
+  }
+
+  /**
+   * Fetch restaurants by matching a text provided by the user via search form
+   */
+  static fetchRestaurantBySearchText(stringToSearch, callback) {
+
+    DBHelper.fetchRestaurants((error, restaurants) => {
+      if (error) {
+        callback(error, null);
+      } else {
+        let results = restaurants
+        results = results.filter(r => this.hasText(r, stringToSearch));
+
+        callback(null, results);
+      }
+    });
+  }
+  /**
    * Fetch all neighborhoods with proper error handling.
    */
   static fetchNeighborhoods(callback) {
@@ -162,9 +208,8 @@ class DBHelper {
       title: restaurant.name,
       url: DBHelper.urlForRestaurant(restaurant),
       map: map,
-      animation: google.maps.Animation.DROP}
-    );
+      animation: google.maps.Animation.DROP
+    });
     return marker;
   }
-
 }

@@ -1,0 +1,13 @@
+{
+    "name": "Restaurant Reviews",
+    "short_name": "Restaurants",
+    "start_url": ".",
+    "display": "browser",
+    "background_color": "#fff",
+    "description": "The app that helps you find the best food in town!",
+    "icons": [{
+        "src": "img/favicon.png",
+        "sizes": "48x48",
+        "type": "image/png"
+    }]
+}

@@ -126,10 +126,20 @@ resetRestaurants = (restaurants) => {
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
   const ul = document.getElementById('restaurants-list');
-  restaurants.forEach(restaurant => {
-    ul.append(createRestaurantHTML(restaurant));
-  });
-  addMarkersToMap();
+
+  // insert a info text when the searching result is empty
+  if (restaurants.length === 0) {
+    let elem = document.createElement('h1');
+    elem.style.color = '#f80';
+    elem.style.fontsize = '1.2em';
+    elem.innerText = 'No results match your search criteria';
+    ul.append(elem);
+  } else {
+    restaurants.forEach(restaurant => {
+      ul.append(createRestaurantHTML(restaurant));
+    });
+    addMarkersToMap();
+  }
 }
 
 /**
@@ -137,15 +147,20 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
+  li.setAttribute('aria-label', `a restaurant named ${restaurant.name}`);
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+
+  image.setAttribute('aria-hidden', 'true');
+  image.alt = `A view inside restaurant`;
   li.append(image);
 
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
   li.append(name);
+
 
   const neighborhood = document.createElement('p');
   neighborhood.innerHTML = restaurant.neighborhood;
@@ -156,11 +171,11 @@ createRestaurantHTML = (restaurant) => {
   li.append(address);
 
   const more = document.createElement('a');
-  more.innerHTML = 'View Details';
+  more.innerHTML = `<span aria-hidden = "true">View Details</span><span class="screen-reader-text">More about this restaurant</span>`;
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
-  return li
+  return li;
 }
 
 /**
@@ -176,3 +191,19 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 }
+/**
+ * Add an mouse click handler for search button
+ */
+document.getElementById("search-button").addEventListener('click', (event) => {
+  let input = document.getElementById("search-input");
+  let searchString = input.value.toLowerCase();
+  DBHelper.fetchRestaurantBySearchText(searchString, (error, restaurants) => {
+    if (error) { // Got an error!
+      console.error(error);
+    } else {
+      resetRestaurants(restaurants);
+      fillRestaurantsHTML();
+    }
+  });
+  event.preventDefault();
+});

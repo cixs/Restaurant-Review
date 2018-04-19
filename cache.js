@@ -1,6 +1,7 @@
 /* documentation and code snippets from
  * https://developers.google.com/web/fundamentals/primers/service-workers/
  */
+/*
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
         navigator.serviceWorker.register('/cache.js').then(function (registration) {
@@ -61,3 +62,4 @@ self.addEventListener('fetch', function (event) {
         })
     );
 });
+*/

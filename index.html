@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="manifest" href="manifest.json">
+
   <title>Restaurant Reviews</title>
 </head>
 
@@ -14,29 +17,46 @@
   <header>
     <nav>
       <h1>
-        <a href="/">Restaurant Reviews</a>
+        <a href="index.html">Restaurant Reviews</a>
       </h1>
     </nav>
   </header>
 
   <main id="maincontent">
+    <span id="map-description" class="screen-reader-text">Map of New York City with multiple mark of restaurants locations</span>
     <section id="map-container">
-      <div id="map"></div>
+      <div id="map" title="New York City Map"></div>
     </section>
-    <section>
-      <div class="filter-options">
-      <h2>Filter Results</h2>
+    <section id="list-container">
 
-      <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
-        <option value="all">All Neighborhoods</option>
-      </select>
-      <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
-        <option value="all">All Cuisines</option>
-      </select></div>
+      <div class="filter-options">
+        <div class="select-title">
+          <h2>Filter Results</h2>
+        </div>
+
+        <select id="neighborhoods-select" aria-label="select by neighborhood"name="neighborhoods" onchange="updateRestaurants()">
+          <option value="all">All Neighborhoods</option>
+        </select>
+        <select id="cuisines-select" aria-label="select by cuisine"name="cuisines" onchange="updateRestaurants()">
+          <option value="all">All Cuisines</option>
+        </select>
+
+
+        <form class="search-container">
+          <input id="search-input" aria-label="text to search" type="text" placeholder="Search.." name="search">
+          <button id="search-button" aria-label="start searching" name="start seraching button" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+
+      </div>
       <ul id="restaurants-list"></ul>
     </section>
   </main>
-
+  <!-- set focus to the neighborhoods combobox-->
+  <script>
+    document.getElementById("neighborhoods-select").focus()
+  </script>
   <script src="js/dbhelper.js"></script>
   <script src="js/main.js"></script>
   <script src="cache.js"></script>

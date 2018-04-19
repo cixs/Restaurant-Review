@@ -67,8 +67,12 @@ iPad Mini 2,3	          1536 x 2048| 768 x 1024
     font-size: 22pt;
   }
 }
-
-@media screen and (min-width: 481px) and (max-width: 640px) {
+@media screen and (min-width: 550px) and (max-width: 764px) {
+  .search-container {
+    margin-left: 320px;
+  }
+}
+@media screen and (min-width: 550px) and (max-width: 640px) {
   #restaurants-list li {
     width: 45%;
   }
@@ -90,9 +94,12 @@ iPad Mini 2,3	          1536 x 2048| 768 x 1024
   }
 }
 
-@media screen and (min-width: 481px) and (max-width: 556px) {
+@media screen and (min-width: 340px) and (max-width: 549px) {
   .filter-options select:nth-of-type(2) {
-    margin-left: 100px;
+    margin-left: 110px;
+  }
+  .search-container {
+    margin-left: auto;
   }
 }
 
@@ -148,8 +155,16 @@ iPad Mini 2,3	          1536 x 2048| 768 x 1024
   #restaurant-hours td {
     font-size: 10pt;
   }
-  .filter-options select:nth-of-type(2) {
-    margin-left: 100px;
+}
+
+
+@media screen and (max-width: 339px) {
+  .filter-options select{
+    margin-left: 0px;
+  }
+  .search-container {
+    margin-left: 0px;
+ 
   }
 }
 
@@ -207,8 +222,4 @@ iPad Mini 2,3	          1536 x 2048| 768 x 1024
   }
 }
 
-@media screen and (min-width: 330px) and (max-width: 360px) {
-  .filter-options select:nth-of-type(2) {
-    margin-left: 100px;
-  }
-}
+
