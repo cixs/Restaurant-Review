@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet"> 
-  <title>Restaurant Info</title>
+  <title>Restaurant Reviews</title>
 </head>
 
 <body class="inside">
@@ -24,8 +24,8 @@
       </h1>
     </nav>
     <!-- Beginning breadcrumb -->
-    <ul id="breadcrumb">
-      <li>
+    <ul id="breadcrumb" role="navigation" aria-label="breadcrumb">
+      <li role="link">
         <a href="/">Home</a>
       </li>
     </ul>
@@ -37,8 +37,8 @@
   <!-- Beginning main -->
   <main id="maincontent">
     <!-- Beginning restaurant -->
-    <div id="restaurant-name"></div>
-    <section id="restaurant-container">
+    <div id="restaurant-name" role="region"></div>
+    <section id="restaurant-container" role="heading" aria-level="3">
       <img id="restaurant-img">
       <p id="restaurant-cuisine"></p>
       <p id="restaurant-address"></p>
@@ -46,20 +46,20 @@
     </section>
     <!-- end restaurant -->
     <!-- Beginning map -->
-    <section id="map-container">
+    <section id="map-container" role="application" aria-label="restaurant location on map">
       <div id="map"></div>
     </section>
     <!-- End map -->
     <!-- Beginning reviews -->
-    <section id="reviews-container">
-      <ul id="reviews-list"></ul>
+    <section id="reviews-container" role="article">
+      <ul id="reviews-list" role="list"></ul>
     </section>
     <!-- End reviews -->
   </main>
   <!-- End main -->
 
   <!-- Beginning footer -->
-  <footer id="footer">
+  <footer id="footer" role="contentinfo">
     Copyright (c) 2017
     <a href="/">
       <strong>Restaurant Reviews</strong>

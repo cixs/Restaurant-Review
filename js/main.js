@@ -1,3 +1,4 @@
+
 let restaurants,
   neighborhoods,
   cuisines
@@ -132,7 +133,7 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
     let elem = document.createElement('h1');
     elem.style.color = '#f80';
     elem.style.fontsize = '1.2em';
-    elem.innerText = 'No results match your search criteria';
+    elem.innerText = 'No results matching your criteria';
     ul.append(elem);
   } else {
     restaurants.forEach(restaurant => {
@@ -147,14 +148,16 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
-  li.setAttribute('aria-label', `a restaurant named ${restaurant.name}`);
+  li.setAttribute('role', 'listitem'); // redundant, but whitout this line it's not seen by the ChromeVox
+  li.setAttribute('aria-label', `a restaurant named ${restaurant.name} in ${restaurant.neighborhood}`);
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt=`A view inside ${restaurant.name}`;
 
   image.setAttribute('aria-hidden', 'true');
-  image.alt = `A view inside restaurant`;
+  image.alt = 'A view inside restaurant'; 
   li.append(image);
 
   const name = document.createElement('h1');
@@ -171,9 +174,9 @@ createRestaurantHTML = (restaurant) => {
   li.append(address);
 
   const more = document.createElement('a');
-  more.innerHTML = `<span aria-hidden = "true">View Details</span><span class="screen-reader-text">More about this restaurant</span>`;
+  more.innerHTML = '<span aria-hidden = "true">View Details</span><span class="only-for-sr">More about this restaurant</span>';
   more.href = DBHelper.urlForRestaurant(restaurant);
-  li.append(more)
+  li.append(more);
 
   return li;
 }
@@ -190,12 +193,12 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     });
     self.markers.push(marker);
   });
-}
+};
 /**
  * Add an mouse click handler for search button
  */
-document.getElementById("search-button").addEventListener('click', (event) => {
-  let input = document.getElementById("search-input");
+document.getElementById('search-button').addEventListener('click', (event) => {
+  let input = document.getElementById('search-input');
   let searchString = input.value.toLowerCase();
   DBHelper.fetchRestaurantBySearchText(searchString, (error, restaurants) => {
     if (error) { // Got an error!
@@ -206,4 +209,30 @@ document.getElementById("search-button").addEventListener('click', (event) => {
     }
   });
   event.preventDefault();
+});
+
+/*
+ * It is kinda annoying when the focus enter inside the google map 
+ * and then needs a lot of tab keystrokes to leave all those buttons and location marks
+ * looking for a way to deal with this, I've found a nice idea here: https://www.canada.ca/en.html
+ * it allows user to decide if he/she wants to do something inside map or to get over to the next content
+ * the next three following event handlers are my implementation of this idea
+ * (also, I added the necessary elements on index.html)
+*/
+
+document.getElementById('page-title').addEventListener('focus', (event) => {
+  let element = document.getElementById('skip-focus-on-google-map');
+  element.setAttribute('style', 'visibility:visible;');
+});
+
+document.getElementById('skip-focus-on-google-map').addEventListener('keydown', (event) => {
+  if (event.keyCode === 13) {
+    let element = document.getElementById('neighborhoods-select');
+    element.focus();
+    event.target.setAttribute('style', 'visibility:hidden;');
+  }
+});
+
+document.getElementById('skip-focus-on-google-map').addEventListener('focusout', (event) => {
+    event.target.setAttribute('style', 'visibility:hidden;');
 });

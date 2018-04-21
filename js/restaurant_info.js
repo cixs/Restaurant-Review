@@ -62,6 +62,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   image.alt=`A view inside ${restaurant.name}`;
 
+
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
 
@@ -71,6 +72,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   }
   // fill reviews
   fillReviewsHTML();
+  document.getElementsByTagName('title')[0].innerHTML = `${restaurant.name} page`;
 }
 
 /**
@@ -120,11 +122,14 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+  li.setAttribute('role', 'listitem');
+  li.setAttribute('aria-label', `${review.name}'s opinion`);
   const review_block = document.createElement('div');
   review_block.className = 'review-container';
 
   const review_header = document.createElement('div');
   review_header.className = 'review-header';
+
 
   const name = document.createElement('span');
   name.className = 'review-author';
@@ -140,9 +145,11 @@ createReviewHTML = (review) => {
 
   const rating = document.createElement('div');
   rating.className = 'review-rating';
-  rating.innerHTML = '<span>Rating </span>';
+  rating.setAttribute('role', 'heading');
+  rating.setAttribute('aria-level', '4');
+  rating.innerHTML = `<span>Rating <span class="only-for-sr">${review.rating}</span></span>`;
   for (let i = 0; i < review.rating; i++)
-    rating.innerHTML += '<img src="img/hot-chili.png" alt="Red hot chili">';
+    rating.innerHTML += '<img src="img/hot-chili.png" aria-hidden="true" alt="Red hot chili">';
   review_block.appendChild(rating);
 
   const comments = document.createElement('p');
@@ -160,6 +167,7 @@ createReviewHTML = (review) => {
 fillBreadcrumb = (restaurant = self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
+  li.setAttribute('role', 'link');
   li.innerHTML = restaurant.name;
   breadcrumb.appendChild(li);
 }

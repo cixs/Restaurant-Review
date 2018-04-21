@@ -17,53 +17,55 @@
   <header>
     <nav>
       <h1>
-        <a href="index.html">Restaurant Reviews</a>
+        <a id="page-title" href="index.html">Restaurant Reviews</a>
       </h1>
+      <h3 >
+        <a id="skip-focus-on-google-map" href="#">Skip to the restaurants list</a>
+      </h3>
     </nav>
   </header>
 
   <main id="maincontent">
-    <span id="map-description" class="screen-reader-text">Map of New York City with multiple mark of restaurants locations</span>
-    <section id="map-container">
-      <div id="map" title="New York City Map"></div>
-    </section>
-    <section id="list-container">
 
-      <div class="filter-options">
+    <section id="map-container" role="application" aria-label="Map with marks of restaurants locations">
+     <div id="map"></div>
+    </section>
+
+    <section id="list-container" aria-label="Main content">
+
+      <div class="filter-options" role="form" aria-label="Filter options">
         <div class="select-title">
           <h2>Filter Results</h2>
         </div>
 
-        <select id="neighborhoods-select" aria-label="select by neighborhood"name="neighborhoods" onchange="updateRestaurants()">
+        <select id="neighborhoods-select" aria-label="select by neighborhood" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
-        <select id="cuisines-select" aria-label="select by cuisine"name="cuisines" onchange="updateRestaurants()">
+        <select id="cuisines-select" aria-label="select by cuisine"  onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
 
 
-        <form class="search-container">
-          <input id="search-input" aria-label="text to search" type="text" placeholder="Search.." name="search">
-          <button id="search-button" aria-label="start searching" name="start seraching button" type="submit">
+        <form class="search-container" aria-label="search in restaurants">
+          <input id="search-input" role="searchbox" aria-label="input" type="text" placeholder="Search...">
+          <button id="search-button" aria-label="search" type="submit">
             <i class="fa fa-search"></i>
           </button>
         </form>
 
       </div>
-      <ul id="restaurants-list"></ul>
+      <ul id="restaurants-list" role="list" aria-label="restaurants"></ul>
+      <!-- -->
     </section>
   </main>
-  <!-- set focus to the neighborhoods combobox-->
-  <script>
-    document.getElementById("neighborhoods-select").focus()
-  </script>
+
   <script src="js/dbhelper.js"></script>
   <script src="js/main.js"></script>
   <script src="cache.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvvXJyaKskmkg8xK36aZUCk93KOAMYD6E&libraries=places&callback=initMap"></script>
 
 
-  <footer id="footer">
+  <footer id="footer"role="contentinfo">
     Copyright (c) 2017
     <a href="/">
       <strong>Restaurant Reviews</strong>
