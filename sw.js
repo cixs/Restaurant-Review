@@ -93,20 +93,18 @@ self.addEventListener('fetch', function (event) {
                         console.log('Fail fetching request')
                         return response;
                     }
-                    
+
                     var responseClone = response.clone();
                     caches.open(CACHE_NAME).then(function (cache) {
 
                         /* Put the fetched response in the cache
                          */
                         cache.put(event.request, responseClone);
-                        console.log('Request cached', event.request.url);
+                        console.log('Resource from network cached', event.request.url);
                         return response;
-
                     });
-
                     /* return a fresh resource
-                    */
+                     */
                     return response;
 
                 })

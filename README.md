@@ -1,5 +1,5 @@
 
-#### Restaurant Reviews
+# Restaurant Reviews
 
 ## Project Overview
 
@@ -12,3 +12,7 @@ The initial code has a lot of issues. It was barely usable on a desktop browser,
 ### Note about ES6
 
 Most of the code in this project has been written to the ES6 JavaScript specification for compatibility with modern web browsers and future proofing JavaScript code. 
+
+### About setup
+
+In order to run properly and serve up the site files on your local computer, this website should run on a web server. Working for this project, I was using the simple local http-server (for Node), but there are many other options.
