@@ -19,7 +19,7 @@
       <h1>
         <a id="page-title" href="index.html">Restaurant Reviews</a>
       </h1>
-      <h3 >
+      <h3>
         <a id="skip-focus-on-google-map" href="#">Skip to the restaurants list</a>
       </h3>
     </nav>
@@ -28,7 +28,7 @@
   <main id="maincontent">
 
     <section id="map-container" role="application" aria-label="Map with marks of restaurants locations">
-     <div id="map"></div>
+      <div id="map"></div>
     </section>
 
     <section id="list-container" aria-label="Main content">
@@ -41,7 +41,7 @@
         <select id="neighborhoods-select" aria-label="select by neighborhood" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
-        <select id="cuisines-select" aria-label="select by cuisine"  onchange="updateRestaurants()">
+        <select id="cuisines-select" aria-label="select by cuisine" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
 
@@ -61,11 +61,11 @@
 
   <script src="js/dbhelper.js"></script>
   <script src="js/main.js"></script>
-  <script src="cache.js"></script>
+  <script src="sw.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvvXJyaKskmkg8xK36aZUCk93KOAMYD6E&libraries=places&callback=initMap"></script>
 
 
-  <footer id="footer"role="contentinfo">
+  <footer id="footer" role="contentinfo">
     Copyright (c) 2017
     <a href="/">
       <strong>Restaurant Reviews</strong>

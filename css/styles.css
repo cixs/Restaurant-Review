@@ -70,7 +70,7 @@ section {
   padding: 20px;
 }
 #footer a{
-  color: rgb(0, 183, 255);
+  color: rgb(143, 223, 255);
   text-decoration: none;
 }
 
@@ -80,15 +80,15 @@ nav {
   width: 100%;
   background-color: #252831;
   text-align: center;
-  height: 78px;
 }
 
 nav h1 {
   margin: 0;
+  padding: 10px 0;
 }
 
 nav h1 a {
-  font-family: 'Alegreya', serif;
+  font-family: "Alegreya", serif;
   font-size: 24pt;
   font-weight: 100;
   color: #fff;
@@ -100,19 +100,19 @@ nav h1 a {
 nav h1 a:hover {
   color: #fffb00;
 }
-nav h3 {
+nav h3{
   margin: 0;
   padding:0;
 }
+
 #skip-focus-on-google-map{
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 10pt;
   font-weight: 100;
   color: #ff0;
   text-decoration: none;
-  margin: 0;
-  padding:0;
-  visibility: hidden;
+  padding-bottom:10px;
+  display:none;
 }
 
 #breadcrumb {
@@ -358,7 +358,7 @@ nav h3 {
 
 #restaurant-hours td {
   font-size: 12pt;
-  font-family: 'PT Mono', monospace;
+  font-family: "PT Mono", monospace;
   vertical-align: top;
 }
 
@@ -416,7 +416,7 @@ nav h3 {
 
 #reviews-list li p {
   margin: 10px 10px 10px;
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 1.3em;
 }
 

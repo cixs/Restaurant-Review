@@ -222,17 +222,17 @@ document.getElementById('search-button').addEventListener('click', (event) => {
 
 document.getElementById('page-title').addEventListener('focus', (event) => {
   let element = document.getElementById('skip-focus-on-google-map');
-  element.setAttribute('style', 'visibility:visible;');
+  element.setAttribute('style', 'display:block;');
 });
 
 document.getElementById('skip-focus-on-google-map').addEventListener('keydown', (event) => {
   if (event.keyCode === 13) {
     let element = document.getElementById('neighborhoods-select');
     element.focus();
-    event.target.setAttribute('style', 'visibility:hidden;');
+    event.target.setAttribute('style', 'display:none;');
   }
 });
 
 document.getElementById('skip-focus-on-google-map').addEventListener('focusout', (event) => {
-    event.target.setAttribute('style', 'visibility:hidden;');
+    event.target.setAttribute('style', 'display:none;');
 });
