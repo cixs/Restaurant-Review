@@ -1,5 +1,6 @@
 
 # Restaurant Reviews
+(Project developed as a part of Udacity's Front-End Web Developer Nanodegree Program)
 
 ## Project Overview
 

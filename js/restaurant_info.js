@@ -50,7 +50,7 @@ fetchRestaurantFromURL = (callback) => {
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
-  const header = document.createElement('h1');
+  const header = document.createElement('h2');
   header.innerHTML = restaurant.name;
   name.appendChild(header);
 
@@ -100,7 +100,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
  */
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
-  const title = document.createElement('h2');
+  const title = document.createElement('h3');
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
@@ -134,6 +134,8 @@ createReviewHTML = (review) => {
   const name = document.createElement('span');
   name.className = 'review-author';
   name.innerHTML = review.name;
+  name.setAttribute('role', 'heading');
+  name.setAttribute('aria-level', '4');
   review_header.appendChild(name);
 
   const date = document.createElement('span');
@@ -146,7 +148,7 @@ createReviewHTML = (review) => {
   const rating = document.createElement('div');
   rating.className = 'review-rating';
   rating.setAttribute('role', 'heading');
-  rating.setAttribute('aria-level', '4');
+  rating.setAttribute('aria-level', '5');
   rating.innerHTML = `<span>Rating <span class="only-for-sr">${review.rating}</span></span>`;
   for (let i = 0; i < review.rating; i++)
     rating.innerHTML += '<img src="img/hot-chili.png" aria-hidden="true" alt="Red hot chili">';
