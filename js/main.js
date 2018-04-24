@@ -1,4 +1,3 @@
-
 let restaurants,
   neighborhoods,
   cuisines
@@ -154,10 +153,10 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.alt=`A view inside ${restaurant.name}`;
+  image.alt = `A view inside ${restaurant.name}`;
 
   image.setAttribute('aria-hidden', 'true');
-  image.alt = 'A view inside restaurant'; 
+  image.alt = 'A view inside restaurant';
   li.append(image);
 
   const name = document.createElement('h1');
@@ -218,7 +217,7 @@ document.getElementById('search-button').addEventListener('click', (event) => {
  * it allows user to decide if he/she wants to do something inside map or to get over to the next content
  * the next three following event handlers are my implementation of this idea
  * (also, I added the necessary elements on index.html)
-*/
+ */
 
 document.getElementById('page-title').addEventListener('focus', (event) => {
   let element = document.getElementById('skip-focus-on-google-map');
@@ -234,5 +233,5 @@ document.getElementById('skip-focus-on-google-map').addEventListener('keydown', 
 });
 
 document.getElementById('skip-focus-on-google-map').addEventListener('focusout', (event) => {
-    event.target.setAttribute('style', 'display:none;');
+  event.target.setAttribute('style', 'display:none;');
 });

@@ -120,16 +120,16 @@ class DBHelper {
     else if (restaurant.address.toLowerCase().search(stringToSearch) !== -1)
       return (true);
 
-    for (let day in restaurant.operating_hours) 
+    for (let day in restaurant.operating_hours)
       if (restaurant.operating_hours.hasOwnProperty(day) && restaurant.operating_hours[day].toLowerCase().search(stringToSearch) !== -1)
         return (true);
 
-    for(let i = 0; i < restaurant.reviews.length; i++){
+    for (let i = 0; i < restaurant.reviews.length; i++) {
       let comment = restaurant.reviews[i].comments.toLowerCase();
       if (comment.search(stringToSearch) !== -1)
         return (true);
     }
-    
+
     return (false);
   }
 
